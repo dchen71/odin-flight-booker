@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'flight#index'
+  root 'flights#index'
 end

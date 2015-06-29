@@ -1,0 +1,14 @@
+<div class="container-fluid">
+	<div class="well">
+		<h3>Search for a Flight</h3>
+		<hr>
+		<%= form_tag root_path, method: 'get'  do%>
+		<%= hidden_field_tag :search %>
+		<p>Departing from: <%= select(:airport,:code,@airport_options) %></p>
+		<p>Arriving in: <%= select(:airport,:city,@airport_options) %></p>
+		<p>Date: <%= select(:flight, :start_date, @flight_options) %></p>
+		<p>Number of Passengers: <%= select_tag :passengers, options_for_select(@passengers) %> </p>
+		<%= submit_tag "Search", :name => nil, class: "btn" %>
+		<% end %>
+	</div>
+</div>

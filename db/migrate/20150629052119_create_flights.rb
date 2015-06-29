@@ -1,12 +1,12 @@
 class CreateFlights < ActiveRecord::Migration
   def change
     create_table :flights do |t|
-      t.references :startair
-      t.references :endair
+      t.integer :depart_airport_id
+      t.integer :destin_airport_id
 
-      t.datetime :startflight
+      t.date :start_date
+      t.time :start_time
       t.integer :duration
-
 
       t.timestamps null: false
     end

@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 20150629052119) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.integer  "startair_id"
-    t.integer  "endair_id"
-    t.datetime "startflight"
+    t.integer  "depart_airport_id"
+    t.integer  "destin_airport_id"
+    t.date     "start_date"
+    t.time     "start_time"
     t.integer  "duration"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end

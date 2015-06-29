@@ -37,10 +37,10 @@ Airport.all.each do |airport1|
       Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: Time.now, 			start_time: Time.now.strftime('%H:%M:%S'), 					duration: dur)
       Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: Time.now, 			start_time: 3.hours.from_now.strftime('%H:%M:%S'), 			duration: dur)
       Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: Time.now, 			start_time: 6.hours.from_now.strftime('%H:%M:%S'), 			duration: dur)
-      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 1.day.from_now, 	start_time: 1.day.from_now.strftime('%H:%M:%S'), 			duration: dur)
-      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 1.day.from_now, 	start_time: (1.day + 6.hours).from_now.strftime('%H:%M:%S'), duration: dur)
-      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 2.days.from_now, 	start_time: 2.days.from_now.strftime('%H:%M:%S'), 			duration: dur)
-      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 2.days.from_now,	start_time: (2.days + 3.hours).from_now.strftime('%H:%M:%S'), duration: dur)
+      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 1.day.from_now, 	start_time: Time.now.strftime('%H:%M:%S'), 			duration: dur)
+      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 1.day.from_now, 	start_time: 6.hours.from_now.strftime('%H:%M:%S'), duration: dur)
+      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 2.days.from_now, 	start_time: Time.now.strftime('%H:%M:%S'), 			duration: dur)
+      Flight.create(depart_airport_id: airport1.id, destin_airport_id: airport2.id, start_date: 2.days.from_now,	start_time: 3.hours.from_now.strftime('%H:%M:%S'), duration: dur)
     end
   end
 end

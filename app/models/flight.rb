@@ -1,4 +1,4 @@
 class Flight < ActiveRecord::Base
-	has_many :departing_flights, class_name: "Flight", foreign_key: "departure_airport_id"
-	has_many :arriving_flights, class_name: "Flight", foreign_key: "destination_airport_id"
+	belongs_to :to_airport, class_name: "Airport"
+	belongs_to :from_airport, class_name: "Airport"
 end

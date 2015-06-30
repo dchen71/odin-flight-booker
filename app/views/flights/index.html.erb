@@ -12,7 +12,7 @@
 			
 			<div class="col-md-6">
 				<p>Departing from: <%= select_tag :depart_code, options_for_select(@airport_options) %></p>
-				<p>Arriving in: <%= select_tag :arrive_code, options_for_select(@airport_options) %></p>
+				<p>Arriving in: <%= select_tag :arrive_code, options_for_select(@airport_options.reverse) %></p>
 			</div>
 			<div class="col-md-6">
 				<p>Date: <%= select_tag :start_date, options_for_select(@flight_options) %></p>

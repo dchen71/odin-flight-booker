@@ -16,6 +16,7 @@
 						<th width="50">From</th>
 						<th width="50">To</th>
 						<th width="50">Duration</th>
+						<th width="50">Passengers</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,6 +27,7 @@
     		      		<td><%= @flight.from_airport.code %></td>
     		      		<td><%= @flight.to_airport.code %></td>
     		      		<td><%= distance_of_time_in_words(@flight.duration) %></td>
+    		      		<td><%= params[:passengers] %></td>
 					</tr>
 				</tbody>
 			</table>

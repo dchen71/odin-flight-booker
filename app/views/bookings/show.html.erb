@@ -44,7 +44,10 @@
 		<div class="well col-md-4 col-md-offset-4">
 			<h3>Passenger Details</h3>
 			<hr>
+			<% passenger_num = 1 %>
 			<% @booking.passengers.each do |passenger| %>
+									<h4>Passenger #<%= passenger_num %></h4>
+					<% passenger_num += 1 %>
 				<p>Name: <%= passenger.name %></p>
 				<p>Email: <%= passenger.email %></p>
 				<hr>

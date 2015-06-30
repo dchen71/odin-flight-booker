@@ -41,16 +41,18 @@
 			<h3>Passenger Details</h3>
 			<hr>
 			<%= form_for(@booking) do |f| %>
-						<%= f.hidden_field :flight_id %>
-						<%= f.fields_for :passengers do |passenger_form| %>
-							<%= passenger_form.label :name %>
-							<%= passenger_form.text_field :name %>
-							<%= passenger_form.label :email %>
-							<%= passenger_form.text_field :email %>
-							<br>
-						<% end %>
-		
-				<hr>
+				<%= f.hidden_field :flight_id %>
+				<% passenger_num = 1 %>
+				<%= f.fields_for :passengers do |passenger_form| %>
+					<h4>Passenger #<%= passenger_num %></h4>
+					<% passenger_num += 1 %>
+					<%= passenger_form.label :name %>
+					<%= passenger_form.text_field :name %>
+					<%= passenger_form.label :email %>
+					<%= passenger_form.text_field :email %>
+					<hr>
+				<% end %>
+
 				<%= f.submit 'Submit Details', class: "btn btn-success col-md-offset-9" %>
 			<% end %>	
 		</div>

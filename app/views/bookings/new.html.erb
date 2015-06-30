@@ -1,0 +1,40 @@
+<% provide(:title, "Book Ticket") %>
+
+<h2 class="text-center">Booking Details</h2>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="well col-md-4 col-md-offset-4">
+			<h3>Flight Details</h3>
+			<hr>
+			<table>
+				<thead>
+					<tr>
+						<th width="50">Flight</th>
+						<th width="50">Date</th>
+						<th width="50">Time</th>
+						<th width="50">From</th>
+						<th width="50">To</th>
+						<th width="50">Duration</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @flight.id %></td>
+    		      		<td><%= @flight.start_date.strftime("%m/%d/%Y")  %></td>
+    		      		<td><%= @flight.start_time.strftime("%I:%M %p") %></td>
+    		      		<td><%= @flight.from_airport.code %></td>
+    		      		<td><%= @flight.to_airport.code %></td>
+    		      		<td><%= distance_of_time_in_words(@flight.duration) %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<%= form_for(@booking) do |f| %>
+	<%= f.hidden_field :flight_id %>
+
+<% end %>

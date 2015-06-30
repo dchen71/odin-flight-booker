@@ -24,9 +24,10 @@ class BookingsController < ApplicationController
 	end
 
 	def show
-		@flight = Flight.find_by(id: params[:flight_id])
+		@booking = Booking.find_by(id: params[:id])
+		@flight = Flight.find_by(id: @booking.flight_id)
 	end
-	
+
 	private
 
 	def booking_params

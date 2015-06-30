@@ -1,6 +1,10 @@
 <% provide(:title, "Confirmation") %>
 
-<h2 class="text-center">Ticket Conformation</h2>
+<div class="text-center">
+	<h2>Ticket Conformation</h2>
+	<p>Your ticket has now been confirmed</p>
+	<p>Your booking id is <%= @booking.id %></p>
+</div>
 
 <div class="container-fluid">
 	<div class="row">
@@ -27,7 +31,7 @@
     		      		<td><%= @flight.from_airport.code %></td>
     		      		<td><%= @flight.to_airport.code %></td>
     		      		<td><%= distance_of_time_in_words(@flight.duration) %></td>
-    		      		<td><%= params[:passengers] %></td>
+    		      		<td><%= @booking.passengers.length %></td>
 					</tr>
 				</tbody>
 			</table>
@@ -35,3 +39,16 @@
 	</div>
 </div>
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="well col-md-4 col-md-offset-4">
+			<h3>Passenger Details</h3>
+			<hr>
+			<% @booking.passengers.each do |passenger| %>
+				<p>Name: <%= passenger.name %></p>
+				<p>Email: <%= passenger.email %></p>
+				<hr>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,8 +1,14 @@
 class BookingsController < ApplicationController
 	def new
+		if params[:flight_id].nil?
+			flash[:error] = "Please select an entry"
+			redirect_to root_url
+		end
+
 		@flight = Flight.find_by(id: params[:flight_id])
-		@booking = Booking.new
-		
+		@booking = @flight.bookings.build
+		params[:passengers].to_i.times {@booking.passengers.build}
+
 	end
 
 	def create
@@ -17,6 +23,10 @@ class BookingsController < ApplicationController
 		end
 	end
 
+	def show
+		@flight = Flight.find_by(id: params[:flight_id])
+	end
+	
 	private
 
 	def booking_params

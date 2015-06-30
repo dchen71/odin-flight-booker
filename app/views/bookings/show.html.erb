@@ -1,6 +1,6 @@
-<% provide(:title, "Book Ticket") %>
+<% provide(:title, "Confirmation") %>
 
-<h2 class="text-center">Booking Details</h2>
+<h2 class="text-center">Ticket Conformation</h2>
 
 <div class="container-fluid">
 	<div class="row">
@@ -35,24 +35,3 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="well col-md-4 col-md-offset-4">
-			<h3>Passenger Details</h3>
-			<hr>
-			<%= form_for(@booking) do |f| %>
-						<%= f.hidden_field :flight_id %>
-						<%= f.fields_for :passengers do |passenger_form| %>
-							<%= passenger_form.label :name %>
-							<%= passenger_form.text_field :name %>
-							<%= passenger_form.label :email %>
-							<%= passenger_form.text_field :email %>
-							<br>
-						<% end %>
-		
-				<hr>
-				<%= f.submit 'Submit Details', class: "btn btn-success col-md-offset-9" %>
-			<% end %>	
-		</div>
-	</div>
-</div>

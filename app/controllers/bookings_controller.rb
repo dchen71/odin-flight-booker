@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
 		if @booking.save
 			flash[:success] = "Booking successfully created"
-			redirect_to root_url
+			redirect_to booking_path(@booking.id)
 		else
 			flash[:error] = "Error creating booking, please try again later"
 			render 'new'

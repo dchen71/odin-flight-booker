@@ -5,11 +5,13 @@ class FlightsController < ApplicationController
 		@passengers = (1..4).map{|p| [p.to_s]}
 
 
-		if params[:depart_code] == params[:arrive_code]
+		if params[:depart_code] == params[:arrive_code] && params[:search]
 			flash.now[:error] = "Error, departing and arriving airports are the same"
 			render 'index'
 		else
-			@flights = Flight.search(params)
+			if params[:search]
+				@flights = Flight.search(params)
+			end
 		end
 	end
 end

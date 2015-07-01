@@ -3,7 +3,10 @@ class BookingsController < ApplicationController
 		@flight = Flight.find_by(id: params[:flight_id]) unless params[:flight_id].nil?
 		@booking = @flight.bookings.build unless params[:flight_id].nil?
 		params[:passengers].to_i.times {@booking.passengers.build} unless params[:flight_id].nil?
-		redirect_to root_path if params[:flight_id].nil?
+		if params[:flight_id].nil?
+			flash[:error] = "Please select a flight"
+			redirect_to root_path 
+		end
 	end
 
 	def create

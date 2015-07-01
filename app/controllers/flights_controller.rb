@@ -4,6 +4,12 @@ class FlightsController < ApplicationController
 		@airport_options = Airport.all.map{|a| [a.code, a.id]}
 		@passengers = (1..4).map{|p| [p.to_s]}
 
-		@flights = Flight.search(params)
+
+		if params[:depart_code] == params[:arrive_code]
+			flash[:error] = "Error, departing and arriving airports are the same"
+			render 'index'
+		else
+			@flights = Flight.search(params)
+		end
 	end
 end

@@ -41,8 +41,28 @@
 			<h3>Passenger Details</h3>
 			<hr>
 			<%= form_for(@booking) do |f| %>
+				<% if @booking.errors.any? %>
+		          <div id="error_explanation">
+		            <h2>
+		              <%= pluralize(@booking.errors.count, "error") %> 
+		            </h2>
+		 
+		            <ul>
+		              <% @booking.errors.full_messages.each do |msg| %>
+		                <li><%= msg %></li>
+		              <% end %>
+		            </ul>
+		          </div>
+		          <hr>
+		        <% end %>
+
+				<%= hidden_field_tag(:flight_id, params[:flight_id]) %>
 				<%= f.hidden_field :flight_id %>
+				<%= hidden_field_tag(:passengers, params[:passengers]) %>
+				<%= f.hidden_field :passengers %>
+				
 				<% passenger_num = 1 %>
+				
 				<%= f.fields_for :passengers do |passenger_form| %>
 					<h4>Passenger #<%= passenger_num %></h4>
 					<% passenger_num += 1 %>

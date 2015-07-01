@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
 
 
 		if params[:depart_code] == params[:arrive_code]
-			flash[:error] = "Error, departing and arriving airports are the same"
+			flash.now[:error] = "Error, departing and arriving airports are the same"
 			render 'index'
 		else
 			@flights = Flight.search(params)

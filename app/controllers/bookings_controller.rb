@@ -14,6 +14,9 @@ class BookingsController < ApplicationController
 		@flight = Flight.find_by(id: params[:flight_id])
 		if @booking.save
 			flash[:success] = "Booking successfully created"
+			@booking.passengers.each do |p|
+				PassengerMailer.thanks(p).deliver
+			end
 			redirect_to booking_path(@booking.id)
 		else
 			flash[:error] = "Error creating booking, please try again later"

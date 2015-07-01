@@ -1,0 +1,15 @@
+You are now booked!
+
+Hey <%= @passenger.name %>
+
+Your booking for flight <%= @flight.id %> is now complete. Your details are the following:
+
+Departing airport: <%= @flight.from_airport.code %>
+Departing city: <%= @flight.from_airport.city %>
+Arriving airport: <%= @flight.to_airport.code %>
+Arriving city: <%= @flight.from_airport.city %>
+Departure time: <%= @flight.start_time.strftime("%I:%M %p") %>
+Departure date: <%= @flight.start_date%>
+Duration: <%= @flight.duration.seconds/1.hour %> hours
+
+Thank you for choosing to travel with us and we hope you have a great trip!

@@ -46,8 +46,8 @@
 			<hr>
 			<% passenger_num = 1 %>
 			<% @booking.passengers.each do |passenger| %>
-									<h4>Passenger #<%= passenger_num %></h4>
-					<% passenger_num += 1 %>
+				<h4>Passenger #<%= passenger_num %></h4>
+				<% passenger_num += 1 %>
 				<p>Name: <%= passenger.name %></p>
 				<p>Email: <%= passenger.email %></p>
 				<hr>

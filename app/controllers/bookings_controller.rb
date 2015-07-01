@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
 	def new
-		@flight = Flight.find_by(id: params[:flight_id])
-		@booking = @flight.bookings.build
-		params[:passengers].to_i.times {@booking.passengers.build}
+		@flight = Flight.find_by(id: params[:flight_id]) unless params[:flight_id].nil?
+		@booking = @flight.bookings.build unless params[:flight_id].nil?
+		params[:passengers].to_i.times {@booking.passengers.build} unless params[:flight_id].nil?
+		redirect_to root_path if params[:flight_id].nil?
 	end
 
 	def create
